@@ -2,8 +2,8 @@ import express from 'express'
 
 const app = express()
 
-app.get('/users', (request, response) => {
+app.get('/users', (req, res) => {
     res.send('Return Users OK')
 })
 
-app.listen(2525)
+app.listen(3000)
