@@ -1,7 +1,7 @@
 {
   "name": "api_zero",
   "version": "1.0.0",
-  "type":"module",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.3.1",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.3.1"
   }
 }
