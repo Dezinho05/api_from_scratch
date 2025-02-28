@@ -17,7 +17,7 @@ app.post('/users', async (request, response) => {
     //response.send('POST Users OK'),
     response.status(201).json(request.body);
 });
-/*
+
 app.get('/users', async (req, res) => {
   const whereClause = {}; // Inicializa um objeto vazio para a cláusula WHERE
 
@@ -44,22 +44,6 @@ app.get('/users', async (req, res) => {
     console.error('Erro ao buscar usuários:', error);
     res.status(500).json({ error: 'Erro ao buscar usuários' });
   }
-});
-*/
-app.get('/users', async (req, res) => {
-    let users = []
-    if (req.query){
-        users = await prisma.user.findMany({
-            where: {
-                name: req.query.name,
-                age: parseInt(req.query.age),
-                email: req.query.email
-            }
-        });
-    } else {
-        users = await prisma.user.findMany();
-        res.status(200).json(users)
-    }
 });
 
 app.put('/users/:id', async (req, res) => {
