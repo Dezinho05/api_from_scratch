@@ -1,8 +1,16 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
+import cors from 'cors';
 
 const app = express();
 const prisma = new PrismaClient();
+app.use(cors({
+  origin: 'http://localhost:5173', // Permite apenas requisições de http://localhost:5173
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Define os métodos HTTP permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Define os cabeçalhos permitidos
+  credentials: true // Permite o envio de credenciais (cookies, etc.)
+}));
+
 app.use(express.json()); /*Motivo: por padrão, express não usa json*/
 
 app.post('/users', async (request, response) => {
